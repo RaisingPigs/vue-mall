@@ -489,6 +489,8 @@
 </template>
 
 <script>
+import '@/assets/css/reset.css'
+
 export default {
   name: "index",
   methods: {
@@ -612,7 +614,7 @@ export default {
         &:hover {
           background-color: #fff;
           filter: drop-shadow(0 0 2px rgba(0, 0, 0, .3));
-          z-index: 1;
+          z-index: 3;
 
           .drop-menu {
             display: flex;

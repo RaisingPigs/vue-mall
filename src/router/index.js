@@ -25,7 +25,7 @@ export default new VueRouter({
             meta: {isAuth: false, title: '首页', footerShow: true}
         },
         {
-            path: '/search/:searchKey?',
+            path: '/search/:searchKey?/:id?',
             name: 'search',
             component: Search,
             meta: {isAuth: false, title: '搜索', footerShow: true}

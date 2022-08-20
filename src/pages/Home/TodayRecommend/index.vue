@@ -8,16 +8,16 @@
     <div class="recommend-bd">
       <ul>
         <li>
-          <img src="./upload/today01.png" alt="">
+          <img src="../../../../public/upload/today01.png" alt="">
         </li>
         <li>
-          <img src="./upload/today02.png" alt="">
+          <img src="../../../../public/upload/today02.png" alt="">
         </li>
         <li>
-          <img src="./upload/today03.png" alt="">
+          <img src="../../../../public/upload/today03.png" alt="">
         </li>
         <li>
-          <img src="./upload/today04.png" alt="">
+          <img src="../../../../public/upload/today04.png" alt="">
         </li>
       </ul>
     </div>

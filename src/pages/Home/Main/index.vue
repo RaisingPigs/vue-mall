@@ -4,28 +4,10 @@
     <div class="main">
       <!--焦点图-->
       <div class="focus">
-        <ul>
-          <li>
-            <a href="#">
-              <img src="./upload/banner1.jpg" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="./upload/banner1.jpg" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="./upload/banner1.jpg" alt="">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="./upload/banner1.jpg" alt="">
-            </a>
-          </li>
-        </ul>
+        <!-- Slider main container -->
+        <Swiper :img-list="bannerList"
+                navigation-size="30"
+                theme-color="#f2f2f2"/>
       </div>
 
       <!--快报-->
@@ -146,7 +128,7 @@
         </ul>
         <div class="flash-ad">
           <a href="#">
-            <img src="./upload/ad1.png" alt="">
+            <img src="/upload/ad1.png" alt="">
           </a>
         </div>
       </div>
@@ -155,8 +137,30 @@
 </template>
 
 <script>
+import {mapState, mapActions} from "vuex";
+import Swiper from 'swiper'
+
 export default {
-  name: "index"
+    name: "index",
+    data() {
+        return {
+            swiper: {}
+        }
+    },
+    computed: {
+        ...mapState(
+            'home',
+            [
+                'bannerList'
+            ]
+        )
+    },
+    methods: {
+        ...mapActions('home', {getBanners: 'bannerList'}),
+    },
+    mounted() {
+        this.getBanners();
+    },
 }
 </script>
 
@@ -180,29 +184,6 @@ export default {
   .focus {
     width: 721px;
     height: 450px;
-
-    ul {
-      display: flex;
-      overflow: hidden;
-
-      li {
-        flex-shrink: 0;
-        width: 721px;
-        height: 450px;
-
-        a {
-          width: 100%;
-          height: 100%;
-
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
-    }
-
-
   }
 
   .new-flash {

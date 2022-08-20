@@ -12,7 +12,7 @@
       <ul>
         <li>
           <div class="like-img">
-            <img src="./upload/like_01.png" alt="">
+            <img src="/upload/like_01.png" alt="">
           </div>
           <div class="like-info">
             <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
@@ -21,7 +21,7 @@
         </li>
         <li>
           <div class="like-img">
-            <img src="./upload/like_02.png" alt="">
+            <img src="/upload/like_02.png" alt="">
           </div>
           <div class="like-info">
             <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
@@ -30,7 +30,7 @@
         </li>
         <li>
           <div class="like-img">
-            <img src="./upload/like_03.png" alt="">
+            <img src="/upload/like_03.png" alt="">
           </div>
           <div class="like-info">
             <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
@@ -39,7 +39,7 @@
         </li>
         <li>
           <div class="like-img">
-            <img src="./upload/like_01.png" alt="">
+            <img src="/upload/like_01.png" alt="">
           </div>
           <div class="like-info">
             <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
@@ -48,7 +48,7 @@
         </li>
         <li>
           <div class="like-img">
-            <img src="./upload/like_02.png" alt="">
+            <img src="/upload/like_02.png" alt="">
           </div>
           <div class="like-info">
             <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
@@ -57,7 +57,7 @@
         </li>
         <li>
           <div class="like-img">
-            <img src="./upload/like_03.png" alt="">
+            <img src="/upload/like_03.png" alt="">
           </div>
           <div class="like-info">
             <p>阳光美包新款单肩包女包时尚子母包四件套女</p>

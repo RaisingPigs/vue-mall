@@ -10,7 +10,7 @@
     </div>
     <div class="search-area">
       <div class="search">
-        <input v-model="searchKey" type="text" placeholder="请输入内容..">
+        <input v-model.trim="searchKey" type="text" placeholder="请输入内容..">
         <button @click="toSearch">搜索</button>
       </div>
       <div class="hotkeys">
@@ -34,28 +34,30 @@
 </template>
 
 <script>
+import '@/assets/css/reset.css'
 
 export default {
-  name: "Header",
-  data() {
-    return {
-      'searchKey': ''
-    }
-  },
-  methods: {
-    toSearch() {
-      this.$router.push({
-        name: 'search',
-        params: {
-          searchKey: this.searchKey || undefined
+    name: "Header",
+    data() {
+        return {
+            'searchKey': ''
         }
-      });
     },
+    methods: {
+        toSearch() {
+            this.$router.push({
+                name: 'search',
+                params: {
+                    searchKey: this.searchKey || undefined
+                },
+                query: this.$route.query
+            });
+        },
 
-    toHome() {
-      this.$router.push('/home');
+        toHome() {
+            this.$router.push('/home');
+        },
     },
-  },
 }
 </script>
 
