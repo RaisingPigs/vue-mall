@@ -10,7 +10,7 @@
     </div>
     <div class="search-area">
       <div class="search">
-        <input v-model.trim="searchKey" type="text" placeholder="请输入内容..">
+        <input v-model.trim="keyword" type="text" placeholder="请输入内容..">
         <button @click="toSearch">搜索</button>
       </div>
       <div class="hotkeys">
@@ -25,7 +25,7 @@
         </ul>
       </div>
     </div>
-    <div class="shopcart">
+    <div :style="$route.meta.footerShow?'':'visibility: hidden;'" @click="toShopcart" class="shopcart">
       <span class="iconfont icon-gouwuche shopcart-icon"></span>
       <span>我的购物车</span>
       <span class="iconfont icon-xiangyoujiantou arrow-icon"></span>
@@ -40,7 +40,7 @@ export default {
     name: "Header",
     data() {
         return {
-            'searchKey': ''
+            keyword: undefined
         }
     },
     methods: {
@@ -48,7 +48,7 @@ export default {
             this.$router.push({
                 name: 'search',
                 params: {
-                    searchKey: this.searchKey || undefined
+                    keyword: this.keyword || undefined
                 },
                 query: this.$route.query
             });
@@ -57,7 +57,25 @@ export default {
         toHome() {
             this.$router.push('/home');
         },
+
+        clearKeyWord() {
+            this.keyword = undefined;
+
+            this.toSearch();
+        },
+
+        toShopcart() {
+            this.$router.push({
+                name: 'shopcart'
+            });
+        }
     },
+    mounted() {
+        this.$bus.$on('clearKeyWord', this.clearKeyWord);
+    },
+    beforeDestroy() {
+        this.$bus.$off('removeKeyWord');
+    }
 }
 </script>
 

@@ -5,7 +5,12 @@
       <div class="left">
         <ul>
           <li class="welcome">购物商城欢迎您!</li>
-          <li>
+          <li v-if="loginUser.nickName">
+            <span>{{loginUser.nickName}}</span>
+            |
+            <a @click.prevent="logout" href="#" class="login">退出登录</a>
+          </li>
+          <li v-else>
             <a @click.prevent="toLogin" href="#" class="login">请登录</a>
             <a @click.prevent="toRegist" href="#" class="regist font-red">免费注册</a>
           </li>
@@ -14,7 +19,7 @@
       <div class="right">
         <ul class="ul2">
           <li>
-            <a href="#">我的订单</a>
+            <a @click.prevent="toCenter" href="#">我的订单</a>
           </li>
           <li class="arrow-icon">
             <a href="#">我的商城</a>
@@ -490,19 +495,41 @@
 
 <script>
 import '@/assets/css/reset.css'
+import {mapState} from "vuex";
 
 export default {
-  name: "index",
-  methods: {
-    toLogin() {
-      this.$router.push('/login');
+    name: "index",
+    computed: {
+        ...mapState('login', ['loginUser'])
     },
+    methods: {
+        toLogin() {
+            this.$router.push('/login');
+        },
 
-    toRegist() {
-      this.$router.push('/regist');
-    }
+        toRegist() {
+            this.$router.push('/regist');
+        },
 
-  },
+        async logout() {
+            if (!confirm('你确定要退出登录吗?')) {
+                return;
+            }
+
+            try {
+                await this.$store.dispatch('login/logout');
+                this.$router.replace({
+                    name: 'login'
+                })
+            } catch (err) {
+                alert('退出失败');
+            }
+        },
+
+        toCenter() {
+            this.$router.push('/center');
+        }
+    },
 }
 </script>
 
