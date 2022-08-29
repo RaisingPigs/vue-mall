@@ -3,6 +3,8 @@ import axios from 'axios';
 import nprogress from 'nprogress'
 /*引入进度条样式*/
 import 'nprogress/nprogress.css'
+import {getToken, getUUID} from "@/utils";
+import store from '@/store'
 
 const requests = axios.create({
     baseURL: '/api',
@@ -15,6 +17,10 @@ requests.interceptors.request.use(
         nprogress.start();
 
         //config是配置对象
+        config.headers.userTempId = getUUID();
+
+        config.headers.token = getToken();
+
         return config;
     }
 );
